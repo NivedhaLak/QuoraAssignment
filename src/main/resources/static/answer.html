@@ -1,0 +1,61 @@
+<div class="container pt-5 container-top">
+	<div class="mx-5 mb-2 col-md-9 bg-white form-control">
+		<div class="mx-3 mt-3 border-bottom padding-bottom-zero">
+			<div class="my-2">
+				<button type="button" class="btn tags smaller mr-2 " ng-repeat="tags in data.tags">{{tags}}</button>
+				
+			</div>
+			<h3 class="firstletter">{{data.qust}}</h3>
+			<p>{{data.description}}</p>
+				<p class="text-muted margin-zero">Answers: {{data.totAns?data.totAns:'0'}}</p>
+		</div>
+		<div class="mx-3 my-3 border-bottom" ng-repeat="answer in data.answer">
+
+			<div class="row">
+				<div class="col-sm-1">
+					<span><img class="o-circle" src="/img/user.png" alt="Smiley face"
+						height="42" width="42"></span>
+				</div>
+				<div class="col-sm-10">
+					<div>
+						<span >{{answer && answer.firstName != null ?answer.firstName:'Anonymous'}}</span>
+					</div>
+					<div>
+						<span class="text-secondary smaller">Answered {{answer.updatedAt}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="font-weight-normal my-3">
+				<p class="firstletter indent">{{answer.ans}}
+				<p>
+			</div>
+			<div class="col-sm-12">
+				<a role="button" class="mx-3 mouse_over" ng-click="updateVote(answer.id,true)"><img src="/img/thumbs-up.svg" ></a><span  id="{{'vote'+answer.id}}" >{{answer.vote}}</span><a
+					role="button" class="mx-3 mouse_over" ng-click="updateVote(answer.id,false)"><img src="/img/thumbs-down.svg"></a>
+			</div>
+		</div>
+		<!-- message add starts -->
+		<div class="mx-3 my-2 ">
+			<div class="row col-sm-12 ">
+			<form name="addanswer">
+				<h4 class="mb-4">Your Answer</h4>
+				<textarea id="ans" name="ans" ng-model="ans" cols="75" rows="9"
+					tabindex="101" class="form-control"
+					style="border-radius: 0; padding: 14px;"
+					placeholder="Write your answer here." required></textarea>
+					<span style="color: red"
+					ng-show="addanswer.ans.$dirty && addanswer.ans.$invalid">Answer can't be empty.
+				</span>
+				<div class="form-control"
+					style="background: #f6f6f6; border-radius: 0;">
+					<input type="text" placeholder="Enter UserName" class=" col-sm-8 my-1 mx-4 ng-pristine ng-invalid ng-invalid-required user-name" >
+					<button class="btn btn-primary btn-xs my-0 py-1 float-md-right" type="submit" ng-disabled="addanswer.ans.$invalid"
+				ng-click="addanswer.ans.$valid && addAnswer(addanswer,data.id)">Submit</button>
+				</div>
+			</form>
+
+			</div>
+		</div>
+		<!-- message add ends -->
+	</div>
+</div>

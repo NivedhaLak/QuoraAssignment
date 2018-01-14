@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+
+<!-- <html>
+<head>
+	  <title>Quora</title>
+	  
+	  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+	   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+          <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+      
+	  <script src="/js/controller.js"></script>
+	  
+</head>
+<body>
+	<div ng-app="app" ng-controller="controller">
+		
+		<p > welcome to quora {{name}}</p>
+		<a href="#/question"> question</a>
+		<ng-view></ng-view>
+	</div>
+</body>
+</html> -->
+<html>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/main.css"  />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-resource.min.js"></script>
+  <script src="/js/controller.js"></script><!--<script src="/js/overview.js"> </script><script src="/js/question.js"></script> -->
+<title>Quora Sample</title>
+<body ng-app="app" ng-controller="controller">
+	<header class="bg-dark text-white py-md-1 px-sm-5 row col-md-12">
+		<div class="col-md-6"> 	<h1 class="text-lg-left"><a href="#/" class="text-white">Quora</a></h1></div>
+		<div class="col-md-6 py-2" ><a href="#/question" class="btn btn-outline-light btn-primary btn-sm float-md-right">Ask a Question?</a></div>
+	</header>
+	<ng-view></ng-view>
+</body>
+</html>

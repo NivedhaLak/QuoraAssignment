@@ -1,0 +1,18 @@
+<div class="container pt-5 container-top">
+		  <div class="mx-5 mb-2 col-md-9 bg-white form-control" ng-repeat="profile in profiles">
+		  		<div class="mx-2 my-3">
+		  			<h5 class="mouse_over underline"><a href="#answer/ans/{{profile.id}}">{{profile.qust}}</a></h5>
+					<p class="font-weight-normal"> {{profile.description}}
+					</p>
+					<p class="text-muted">Answers: {{profile.ansTot ? profile.ansTot:'0'}}</p>
+				</div>
+			</div>
+			
+			<div class="mx-5 mb-2 col-md-9 bg-white form-control" ng-if="!isprofile">
+		  		<div class="mx-2 my-3">
+		  			
+					<p class="larger"> Nothing to display</p>
+				</div>
+			</div>
+			
+</div>
