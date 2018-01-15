@@ -25,6 +25,7 @@ app.controller('controller', [ '$scope','$filter','$http','$rootScope','$routePa
 		$http.get($rootScope.url+'/getAllQuestion')
 		  .then(function(response) {
 			  $scope.profiles = response.data;
+			  $scope.totQuestion = response.data.length;
 			  $scope.isprofile = response.data.length >0 ?true: false;
 			  for(data in  $scope.profiles){
 				  if($scope.profiles[data].answer)
@@ -63,9 +64,11 @@ app.controller('controller', [ '$scope','$filter','$http','$rootScope','$routePa
 	$scope.addAnswer = function(addanswer,id){
 		var data ={
 				'ans':addanswer.ans.$viewValue,
-				'quesId':id,
-				'id':'2'
+				'quesId':id
 		};
+		if(addanswer.username.$viewValue!=null && addanswer.username.$viewValue != undefined){
+			data.username=addanswer.username.$viewValue;
+		}
 		$http.post($rootScope.url+'/addAnswer',data)
 		  .then(function(response) {
 			  alert("Successfully added");

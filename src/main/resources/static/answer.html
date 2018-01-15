@@ -48,7 +48,7 @@
 				</span>
 				<div class="form-control"
 					style="background: #f6f6f6; border-radius: 0;">
-					<input type="text" placeholder="Enter UserName" class=" col-sm-8 my-1 mx-4 ng-pristine ng-invalid ng-invalid-required user-name" >
+					<input type="text" placeholder="Enter UserName" name="username" ng-model="username"  class=" col-sm-8 my-1 mx-4 ng-pristine ng-invalid ng-invalid-required user-name" >
 					<button class="btn btn-primary btn-xs my-0 py-1 float-md-right" type="submit" ng-disabled="addanswer.ans.$invalid"
 				ng-click="addanswer.ans.$valid && addAnswer(addanswer,data.id)">Submit</button>
 				</div>

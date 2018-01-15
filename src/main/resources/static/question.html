@@ -1,4 +1,7 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.11.1/typeahead.bundle.min.js"></script>
+<script src="/js/bootstrap-tagsinput.min.js"></script>
 <div class="container pt-5 container-top">
+
 	<form name="addquestion">
 		<div class="row pl-5 form-group ">
 			<div class="col-sm-1 " style="top: 5px;">
@@ -32,9 +35,21 @@
 				<label for="title" class="">Tags</label>
 			</div>
 			<div class="col-sm-7 pl-5">
-				<input type="text" name="tags" ng-model="tags" class="form-control" width="62"
-					placeholder="atleast one tag such as java, JS" required only-letters-input>
+				<div class="example example_multivalue" style="text-align: left !important;">
+			          <div class="bs-example">
+			            <select multiple data-role="tagsinput" name="tags" ng-model="tags" required >
+			              <!-- <option value="Amsterdam">Amsterdam</option>
+			              <option value="Washington">Washington</option>
+			              <option value="Sydney">Sydney</option>
+			              <option value="Beijing">Beijing</option>
+			              <option value="Cairo">Cairo</option> -->
+			            </select>
+			          </div>
+		          </div>
+			<!-- 	<input type="text" name="tags" ng-model="tags" class="form-control" width="62"
+					placeholder="atleast one tag such as java, JS" required only-letters-input> -->
 					<span style="color: red" ng-show="addquestion.tags.$dirty && addquestion.tags.$invalid" >Please enter atleast one tag</span>
+					<span style="color: red;" class="smaller" ng-show="!(addquestion.tags.$dirty && addquestion.tags.$invalid)" >*After typing tag press Enter button.</span>
 				
 			</div>
 		</div>
