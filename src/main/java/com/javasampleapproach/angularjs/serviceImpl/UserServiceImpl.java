@@ -52,9 +52,10 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public String addAnswer(AnswerVO vo) throws Exception {
 		Answer answer = new Answer();
-		answer.setId(new Long(vo.getId()));
+		//answer.setId(new Long(vo.getId()));
 		answer.setAns(vo.getAns());
 		answer.setVote(vo.getVote());
+		answer.setUsername(vo.getUsername());
 		// answer.setUpdatedAt(Calendar.getInstance().toString() );
 		SimpleDateFormat dt = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		answer.setUpdatedAt(dt.format(Calendar.getInstance().getTime()));
@@ -127,6 +128,7 @@ public class UserServiceImpl implements UserService {
 		vo.setVote(answer.getVote());
 		vo.setUpdatedAt(answer.getUpdatedAt());
 		vo.setUser(createUserVO(answer.getUser()));
+		vo.setUsername(answer.getUsername());
 		return vo;
 	}
 

@@ -8,7 +8,7 @@ public class AnswerVO {
 	UserVO user;
 	String updatedAt;
 	String quesId;
-
+	String username;
 	public String getId() {
 		return id;
 	}
@@ -64,6 +64,14 @@ public class AnswerVO {
 
 	public void setUpdatedAt(String updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 }
