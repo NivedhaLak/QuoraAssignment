@@ -1,9 +1,12 @@
 <div class="container pt-5 container-top">
-		  <div class="mx-5 mb-2 col-md-9 bg-white form-control" ng-repeat="profile in profiles">
+		  <div class="mx-5 mb-2 col-md-9 bg-white form-control" ng-repeat="profile in profiles | filter:searchFilter">
 		  		<div class="mx-2 my-3">
 		  			<h5 class="mouse_over underline"><a href="#answer/ans/{{profile.id}}">{{profile.qust}}</a></h5>
 					<p class="font-weight-normal"> {{profile.description}}
 					</p>
+					<div class="mb-2 col-md-12 padding-zero">
+							<button type="button" class="btn tags smaller mr-2 " ng-repeat="tags in profile.tags">{{tags}}</button>
+					</div>
 					<p class="text-muted">Answers: {{profile.ansTot ? profile.ansTot:'0'}}</p>
 				</div>
 			</div>

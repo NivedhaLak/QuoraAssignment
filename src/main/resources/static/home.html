@@ -24,7 +24,9 @@
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css"> -->
 	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
    <link rel="stylesheet" type="text/css" href="/bootstrap-tagsinput.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" type="text/css" href="/main.css"  />
+	
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
@@ -49,9 +51,16 @@
 <title>Quora Sample</title>
 <body ng-app="app" ng-controller="controller">
 	<header class="bg-dark text-white py-md-1 px-sm-1 pl-sm-4 row col-md-12">
-		<div class="col-md-6"> 	<h1 class="text-lg-left"><a href="#/" class="text-white">Quora</a></h1></div>
+		<div class="col-md-6"> 	<h1 class="text-lg-left mt-2"><a href="#/" class="text-white">Quora</a></h1></div>
 		<div class="col-md-6 py-2 row" >
-			<div class="col-md-9 "><span class="float-md-right smaller mx-2 my-1" ng-if="totQuestion">Total Question : {{totQuestion?totQuestion:'0'}}</span></div>
+			<div class="col-md-9 ">
+				<div class="input-group col-md-9 float-md-right">
+				      <input type="text" class="form-control" placeholder="Search" name="search" ng-model="search">
+				      <div class="input-group-btn">
+				        <button class="btn search-icon" type="submit"><i class="fa fa-search"></i></button>
+				      </div>
+			    </div>
+				<span class="float-md-right smaller mx-3 my-1" ng-if="totQuestion">Total Question : {{totQuestion?totQuestion:'0'}}</span></div>
 			<div class="col-md-3 ">
 				<a href="#/question" class="btn btn-outline-light btn-primary btn-sm float-md-right">Ask a Question?</a></div>
 			</div>

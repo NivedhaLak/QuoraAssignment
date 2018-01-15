@@ -2,6 +2,7 @@ var app = angular.module('app', ["ngRoute","ngResource"]);
 app.controller('controller', [ '$scope','$filter','$http','$rootScope','$routeParams','$location', function($scope, $filter,$http,$rootScope,$routeParams,$location) {
 	$rootScope.url="http://localhost:8090";
 	$scope.name="in quora home page";
+	$scope.search="";
 	console.log("$routeParams.param; "+$routeParams.param);
 	/*var User = $resource($rootScope.url+'/getAllQuestion');
 	User.query(function(user){
@@ -28,9 +29,11 @@ app.controller('controller', [ '$scope','$filter','$http','$rootScope','$routePa
 			  $scope.totQuestion = response.data.length;
 			  $scope.isprofile = response.data.length >0 ?true: false;
 			  for(data in  $scope.profiles){
+				  $scope.profiles[data].tags = $scope.profiles[data].tags.split(",");
 				  if($scope.profiles[data].answer)
 					  $scope.profiles[data].ansTot=$scope.profiles[data].answer.length;
 			  }
+				 
 			  console.log(response+"---"+$scope.isprofile);
 		  },function(response) {
 			  console.log("error while loading allquestion"+response);
@@ -38,13 +41,14 @@ app.controller('controller', [ '$scope','$filter','$http','$rootScope','$routePa
 	}
 	$scope.addQuestion=function(addquestion){
 		console.log("in add question");
-		if(addquestion.tags.$viewValue.endsWith(',') || addquestion.tags.$viewValue.startsWith(',')){
+		var tag=addquestion.tags.$viewValue+'';
+		if(tag.endsWith(',') || tag.startsWith(',')){
 			addquestion.tags.$setValidity(false);
 			return;
 		}
 		var data={
 			"qust":addquestion.qust.$viewValue,
-			 "tags":addquestion.tags.$viewValue,
+			 "tags":tag,
 			 "description":addquestion.description.$viewValue
 		};
 		
@@ -58,8 +62,26 @@ app.controller('controller', [ '$scope','$filter','$http','$rootScope','$routePa
 		  });
 		
 	};
-	$scope.loadAnswerPage = function(){
-		
+	$scope.searchFilter = function(profile){
+		var isMatch = false;
+console.log("-----");
+	      if ($scope.search && $scope.search.trim().length>0) {
+	        var parts = $scope.search.toLowerCase().split(' ');
+			parts.forEach(function(part) {
+	          if (new RegExp(part).test((profile.tags+'').toLowerCase())) {
+	            isMatch = true;
+	          }else  if (new RegExp(part).test(profile.description.toLowerCase())) {
+		            isMatch = true;
+		      }else if (new RegExp(part).test(profile.qust.toLowerCase())) {
+		            isMatch = true;
+		      }
+	          
+	        });
+	      } else {
+	        isMatch = true;
+	      }
+
+	      return isMatch;
 	};
 	$scope.addAnswer = function(addanswer,id){
 		var data ={

@@ -20,7 +20,7 @@ div{
 	border-radius: 1.5em;
 }
 .container-top{
-	padding-top: 5.5em !important;
+	padding-top: 6.5em !important;
 }
 .tags{
 	padding: 1px 11px;
@@ -58,6 +58,9 @@ h1 a{
 .padding-bottom-zero{
 	padding-bottom : 0 !important;
 }
+.padding-zero{
+	padding : 0 !important;
+}
 .user-name{
     border: 1px solid #ced4da;
     font-size: 14px;
@@ -85,4 +88,15 @@ h1 a{
 }
 .bs-example input{
 	min-width: 254px !important;
+}
+.search-icon{
+	background: white;
+    height: 38px;
+    top: 0.02em;
+    border: 1px solid #ced4da;
+    border-left: white;
+}
+
+.search-icon i{
+    color: rgba(16, 16, 16, 0.34);
 }
