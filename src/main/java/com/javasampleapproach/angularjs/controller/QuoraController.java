@@ -51,4 +51,36 @@ public class QuoraController {
 	public AnswerVO updateVote(@PathVariable String id ,@PathVariable boolean isup) throws Exception {
 		return userService.updateVote(id,isup);
 	}
+	
+	/******* Updated the resources ********/
+	
+	@RequestMapping(value = "/question", method = RequestMethod.GET)
+	public List<QuestionVO> question() throws Exception {
+		return userService.getAllQuestion();
+	}
+	
+	@RequestMapping(value = "/question/{id}", method = RequestMethod.GET)
+	public QuestionVO question(@PathVariable String id) throws Exception {
+		return userService.findByQuestionId(id);
+	}
+	
+	
+	@RequestMapping(value = "/question", method = RequestMethod.POST)
+	public String question(@RequestBody QuestionVO question) throws Exception {
+
+		return userService.addQuestion(question);
+	}
+
+	@RequestMapping(value = "/answer", method = RequestMethod.POST)
+	public String answer(@RequestBody AnswerVO vo) throws Exception {
+		return userService.addAnswer(vo);
+	}
+
+	@RequestMapping(value = "/answer/{id}/{isup}", method = RequestMethod.PUT)
+	public AnswerVO answer(@PathVariable String id ,@PathVariable boolean isup) throws Exception {
+		return userService.updateVote(id,isup);
+	}
+	
+	
+	
 }
